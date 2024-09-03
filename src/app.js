@@ -3,7 +3,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 const app = express()
 
-// Define your routes and middleware here
+// Define middleware here
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
     credentials:true
@@ -19,6 +19,23 @@ app.use(express.static("public"))//for public pdf and files
 
 //to perform crud opertion on user browser cookies through server
 app.use(cookieParser())
+
+
+//routes import here
+import UserRouter from './routes/user.routes.js'
+
+//routes declartion
+// app.use("/users",UserRouter)
+//if using api
+app.use("/api/v1/users",UserRouter)
+
+//http://localhost:8000/api/v1/users/register
+
+
+
+
+
+
 
 
 
