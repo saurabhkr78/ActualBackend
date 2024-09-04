@@ -9,11 +9,12 @@ app.use(cors({
     credentials:true
 }))
 app.use(express.json({
-    limit:"16k"
-}))//forhandling json data
+    limit:"1mb"
+}))
+//forhandling json data
 app.use(express.urlencoded({
     extended:true,
-    limit:"16k"
+    limit:"1mb"
 }))//forhandling url data
 app.use(express.static("public"))//for public pdf and files
 
@@ -29,7 +30,7 @@ import UserRouter from './routes/user.routes.js'
 //if using api
 app.use("/api/v1/users",UserRouter)
 
-//http://localhost:8000/api/v1/users/register
+//  
 
 
 
